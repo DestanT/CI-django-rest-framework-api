@@ -19,7 +19,7 @@ class ProfileList(generics.ListAPIView):
     ).order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter,
-        DjangoFilterBackend
+        DjangoFilterBackend,
     ]
     ordering_fields = [
         'posts_count',
@@ -30,6 +30,7 @@ class ProfileList(generics.ListAPIView):
     ]
     filterset_fields = [  # DjangoFilterBackend
         'owner__following__followed__profile',
+        'owner__followed__owner__profile',
     ]
 
 
