@@ -1,5 +1,5 @@
 from django.urls import path
-from likes import views
+from followers import views
 
 
 urlpatterns = [
